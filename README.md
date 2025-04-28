@@ -1,5 +1,10 @@
 # LumiMedia SDK
 
+![License](https://img.shields.io/github/license/rainbowgore/lumimedia-sdk)
+![Python](https://img.shields.io/badge/python-3.8%2B-blue)
+![Build Status](https://img.shields.io/github/actions/workflow/status/rainbowgore/lumimedia-sdk/python-app.yml?branch=main)
+![Repo Size](https://img.shields.io/github/repo-size/rainbowgore/lumimedia-sdk)
+
 > A lightweight AI-powered media SDK for developers — automatic background removal, compression, metadata extraction, and easy uploads.
 
 ---

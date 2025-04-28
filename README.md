@@ -64,9 +64,9 @@ remove_background("path/to/image.jpg", "path/to/output.png")
 
 **Automatic Background Removal**
 
-|           Before           |          After           |
-| :------------------------: | :----------------------: |
-| ![Before](demo/before.png) | ![After](demo/after.png) |
+|              Before              |              After              |
+| :------------------------------: | :-----------------------------: |
+| ![Before](demo/input/before.png) | ![After](demo/output/after.png) |
 
 ---
 

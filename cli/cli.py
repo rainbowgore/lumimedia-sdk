@@ -1,25 +1,25 @@
 import argparse
+from lumimedia.uploader import upload_and_compress
+from lumimedia.ai.face_cropper import smart_crop
 import os
-from lumimedia_sdk.uploader import upload_and_compress
 
 def compress_folder(folder_path):
-    if not os.path.exists(folder_path):
-        print(f"Error: The folder {folder_path} does not exist.")
-        return
-
     for filename in os.listdir(folder_path):
-        if filename.lower().endswith((".png", ".jpg", ".jpeg")):
-            file_path = os.path.join(folder_path, filename)
-            print(f"Compressing {filename}...")
+        file_path = os.path.join(folder_path, filename)
+
+        if filename.lower().endswith(('.png', '.jpg', '.jpeg')):
             upload_and_compress(file_path)
+            smart_crop(file_path)
 
 def main():
-    parser = argparse.ArgumentParser(description="Compress all images in a folder.")
-    parser.add_argument("compress_folder", type=str, help="Path to the folder containing images.")
+    parser = argparse.ArgumentParser(description="LumiMedia SDK CLI")
+    parser.add_argument("command", choices=["compress_folder"], help="Command to run")
+    parser.add_argument("path", help="Path to folder")
 
     args = parser.parse_args()
 
-    compress_folder(args.compress_folder)
+    if args.command == "compress_folder":
+        compress_folder(args.path)
 
 if __name__ == "__main__":
     main()

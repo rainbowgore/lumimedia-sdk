@@ -1,17 +1,18 @@
 # LumiMedia SDK
 
-A lightweight SDK for media compression and optimization workflows, ideal for web and mobile developers.
+> A lightweight AI-powered media SDK for developers — automatic background removal, compression, metadata extraction, and easy uploads.
 
 ---
 
-## Overview
+## Features
 
-LumiMedia SDK provides tools to:
-
-- Compress images via API
-- Log actions and debug sessions
-- Retry failed API calls
-- Modularize and scale compression workflows
+- **Upload API** — Streamlined HTTP uploads.
+- **Compression Engine** — Optimized media size for web/mobile.
+- **Background Removal** — Remove backgrounds from photos and artistic images (powered by AI).
+- **Metadata Extraction** — Access file details programmatically.
+- **Smart Retry Logic** — Resilient uploads with retry on failure.
+- **Face Cropping (Optional)** — AI-assisted face detection and smart cropping (experimental).
+- **Modular, Scalable Design** — Built for clean expansion.
 
 ---
 
@@ -21,62 +22,84 @@ LumiMedia SDK provides tools to:
 pip install -r requirements.txt
 ```
 
+Requires Python 3.8+.
+
 ---
 
-## Usage
+## 🛠 Usage
+
+### CLI
 
 ```bash
-# Command Line Interface
-python cli.py compress_folder /path/to/your/folder
+python cli/cli.py compress_folder /path/to/your/folder
+```
 
-# Python SDK Usage
-from lumimedia_sdk.uploader import upload_and_compress
+- Compress images in a folder and save optimized outputs to `/demo/output/`.
 
-upload_and_compress("path/to/image.jpg")
+---
+
+### Python SDK
+
+```python
+from lumimedia.uploader import MediaUploader
+from lumimedia.ai.background_remover import remove_background
+
+uploader = MediaUploader("your_api_key", "https://your-upload-endpoint.com")
+
+# Upload and compress
+uploader.upload_file("path/to/image.jpg")
+
+# Remove background
+remove_background("path/to/image.jpg", "path/to/output.png")
 ```
 
 ---
 
-## Requirements
+## Demo
 
-- Python 3.8+
-- requests
-- tqdm
+**Automatic Background Removal**
+
+|           Before           |          After           |
+| :------------------------: | :----------------------: |
+| ![Before](demo/before.png) | ![After](demo/after.png) |
 
 ---
 
 ## Project Structure
 
 ```
-lumimedia_sdk/
-    __init__.py
-    uploader.py
-    transformer.py
-    metadata.py
-    logger.py
-tests/
-    test_uploader.py
-    test_transformer.py
-cli.py
-README.md
-requirements.txt
-setup.py
-LICENSE
+lumimedia-sdk/
+├── cli/
+│   └── cli.py
+├── demo/
+│   ├── input/
+│   ├── output/
+│   └── demo_runner.py
+├── lumimedia/
+│   ├── __init__.py
+│   ├── logger.py
+│   ├── metadata.py
+│   ├── transformer.py
+│   ├── uploader.py
+│   └── ai/
+│       ├── background_remover.py
+│       └── face_cropper.py
+├── tests/
+│   ├── conftest.py
+│   ├── test_transformer.py
+│   └── test_uploader.py
+├── .env.example
+├── LICENSE
+├── README.md
+├── requirements.txt
+├── setup.py
+└── .github/
+    └── workflows/
+        └── python-app.yml
 ```
 
 ---
 
-## Quick Demo
-
-1. Add images to `demo/input/`
-2. Run the demo:
-
-```bash
-python demo/run_demo.py
-
-----
-
 ## License
 
-MIT License.
-```
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.

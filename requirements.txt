@@ -1,0 +1,6 @@
+requests
+opencv-python
+mediapipe
+numpy
+python-dotenv
+rembg

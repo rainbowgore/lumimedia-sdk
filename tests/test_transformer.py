@@ -6,7 +6,6 @@ import io
 class TestTransformer(unittest.TestCase):
 
     def setUp(self):
-        # Create a simple image for testing
         self.image = Image.new("RGB", (200, 200), color='red')
 
     def test_resize_image(self):

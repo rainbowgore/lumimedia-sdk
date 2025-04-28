@@ -66,6 +66,17 @@ LICENSE
 
 ---
 
+## Quick Demo
+
+1. Add images to `demo/input/`
+2. Run the demo:
+
+```bash
+python demo/run_demo.py
+
+----
+
 ## License
 
 MIT License.
+```

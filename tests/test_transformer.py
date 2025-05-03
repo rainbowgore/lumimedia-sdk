@@ -9,6 +9,7 @@ from lumimedia.transformer import (
 
 TEST_IMAGE = "demo/input/before.png"
 
+
 def test_resize_image_success():
     resized = resize_image(TEST_IMAGE, 100, 100)
     assert isinstance(resized, bytes)
@@ -29,6 +30,8 @@ def test_change_format_success():
     assert isinstance(changed, bytes)
 
 # --- Error handling (sad path) ---
+
+
 def test_resize_image_invalid_path():
     with pytest.raises(FileNotFoundError):
         resize_image("invalid_path.jpg", 100, 100)

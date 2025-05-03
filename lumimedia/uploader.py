@@ -1,6 +1,7 @@
 import os
 import requests
 
+
 class MediaUploader:
     def __init__(self, api_key: str, upload_endpoint: str):
         self.api_key = api_key
@@ -30,7 +31,9 @@ class MediaUploader:
                 file_path = os.path.join(root, file_name)
                 try:
                     upload_result = self.upload_file(file_path)
-                    results.append({"file": file_path, "status": "success", "result": upload_result})
+                    results.append(
+                        {"file": file_path, "status": "success", "result": upload_result})
                 except Exception as e:
-                    results.append({"file": file_path, "status": "error", "error": str(e)})
+                    results.append(
+                        {"file": file_path, "status": "error", "error": str(e)})
         return results

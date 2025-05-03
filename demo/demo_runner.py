@@ -1,15 +1,16 @@
+from lumimedia.ai.background_remover import remove_background
+from lumimedia.uploader import MediaUploader
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from lumimedia.uploader import MediaUploader
-from lumimedia.ai.background_remover import remove_background
 
 INPUT_FOLDER = "demo/input"
 OUTPUT_FOLDER = "demo/output"
 
 API_KEY = "your_api_key"
 UPLOAD_ENDPOINT = "https://httpbin.org/post"  # Fake upload target for demo
+
 
 def run_demo():
     uploader = MediaUploader(API_KEY, UPLOAD_ENDPOINT)
@@ -29,6 +30,7 @@ def run_demo():
                 print(f"Successfully uploaded {filename}")
             except Exception as e:
                 print(f"Failed to upload {filename}: {e}")
+
 
 if __name__ == "__main__":
     run_demo()

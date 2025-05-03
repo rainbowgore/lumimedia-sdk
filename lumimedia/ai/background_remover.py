@@ -3,6 +3,7 @@ import cv2
 import numpy as np
 import os
 
+
 def remove_background(input_path: str, output_path: str = None):
     if not output_path:
         output_path = input_path.replace("input", "output")
@@ -24,6 +25,7 @@ def remove_background(input_path: str, output_path: str = None):
 
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     cv2.imwrite(output_path, result)
+
 
 if __name__ == "__main__":
     remove_background("demo/input/sample.png")

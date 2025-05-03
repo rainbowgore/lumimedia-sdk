@@ -2,6 +2,7 @@ from PIL import Image
 import io
 import os
 
+
 def resize_image(image_path: str, width: int, height: int) -> bytes:
     """
     Resize an image to the specified width and height.
@@ -16,6 +17,7 @@ def resize_image(image_path: str, width: int, height: int) -> bytes:
         resized_img.save(img_byte_arr, format=img.format)
         return img_byte_arr.getvalue()
 
+
 def convert_image_format(image_path: str, target_format: str) -> bytes:
     """
     Convert an image to a different format (e.g., JPEG, PNG).
@@ -29,6 +31,7 @@ def convert_image_format(image_path: str, target_format: str) -> bytes:
         img.save(img_byte_arr, format=target_format.upper())
         return img_byte_arr.getvalue()
 
+
 def compress_image(image_path: str, quality: int = 75) -> bytes:
     """
     Compress an image by reducing its quality.
@@ -41,6 +44,7 @@ def compress_image(image_path: str, quality: int = 75) -> bytes:
         img_byte_arr = io.BytesIO()
         img.save(img_byte_arr, format=img.format, optimize=True, quality=quality)
         return img_byte_arr.getvalue()
+
 
 def change_format(image_path: str, target_format: str = "PNG") -> bytes:
     """

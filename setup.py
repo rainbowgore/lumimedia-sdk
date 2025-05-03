@@ -3,7 +3,10 @@ from setuptools import setup, find_packages
 setup(
     name='lumimedia-sdk',
     version='0.1.0',
-    description='Lightweight Python SDK for basic media upload, compression, and metadata retrieval.',
+    description=(
+        'Lightweight Python SDK for basic media upload, compression, '
+        'and metadata retrieval.'
+    ),
     author='Noa Sasson',
     author_email='your_email@example.com',
     url='https://github.com/rainbowgore/lumimedia-sdk',

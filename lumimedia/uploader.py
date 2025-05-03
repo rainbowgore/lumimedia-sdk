@@ -15,7 +15,11 @@ class MediaUploader:
         headers = {'Authorization': f'Bearer {self.api_key}'}
 
         try:
-            response = requests.post(self.upload_endpoint, files=files, headers=headers)
+            response = requests.post(
+                self.upload_endpoint,
+                files=files,
+                headers=headers
+            )
             response.raise_for_status()
             return response.json()
         except requests.RequestException as e:
@@ -31,9 +35,15 @@ class MediaUploader:
                 file_path = os.path.join(root, file_name)
                 try:
                     upload_result = self.upload_file(file_path)
-                    results.append(
-                        {"file": file_path, "status": "success", "result": upload_result})
+                    results.append({
+                        "file": file_path,
+                        "status": "success",
+                        "result": upload_result
+                    })
                 except Exception as e:
-                    results.append(
-                        {"file": file_path, "status": "error", "error": str(e)})
+                    results.append({
+                        "file": file_path,
+                        "status": "error",
+                        "error": str(e)
+                    })
         return results

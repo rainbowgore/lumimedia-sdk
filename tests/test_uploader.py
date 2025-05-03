@@ -1,4 +1,3 @@
-import os
 import pytest
 from lumimedia.uploader import MediaUploader
 
@@ -13,7 +12,10 @@ def test_upload_file_success(monkeypatch, uploader):
         def raise_for_status(self): pass
         def json(self): return {"uploaded": True}
 
-    monkeypatch.setattr("requests.post", lambda *args, **kwargs: DummyResponse())
+    monkeypatch.setattr(
+        "requests.post",
+        lambda *args, **kwargs: DummyResponse()
+    )
 
     result = uploader.upload_file("demo/input/before.png")
     assert result == {"uploaded": True}
@@ -25,7 +27,6 @@ def test_upload_file_invalid_path(uploader):
 
 
 def test_upload_folder_success(monkeypatch, uploader, tmp_path):
-    # Setup a fake folder with fake files
     folder = tmp_path / "test_folder"
     folder.mkdir()
     file = folder / "test.jpg"
@@ -35,7 +36,10 @@ def test_upload_folder_success(monkeypatch, uploader, tmp_path):
         def raise_for_status(self): pass
         def json(self): return {"uploaded": True}
 
-    monkeypatch.setattr("requests.post", lambda *args, **kwargs: DummyResponse())
+    monkeypatch.setattr(
+        "requests.post",
+        lambda *args, **kwargs: DummyResponse()
+    )
 
     results = uploader.upload_folder(folder)
     assert len(results) == 1

@@ -30,10 +30,16 @@ jobs:
           pip install flake8 coverage
 
       - name: Lint with flake8
-        run: |
-          flake8 .
+        run: flake8 .
 
       - name: Run tests with coverage
         run: |
           coverage run -m pytest
           coverage report -m
+          coverage html
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: htmlcov/

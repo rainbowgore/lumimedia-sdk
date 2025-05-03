@@ -4,3 +4,4 @@ mediapipe
 numpy
 python-dotenv
 rembg
+pytest

@@ -61,6 +61,7 @@ def test_upload_folder_invalid_path(uploader):
     with pytest.raises(NotADirectoryError):
         uploader.upload_folder("invalid_folder/")
 
+
 def test_upload_folder_partial_failure(monkeypatch, uploader, tmp_path):
     folder = tmp_path / "upload_folder"
     folder.mkdir()

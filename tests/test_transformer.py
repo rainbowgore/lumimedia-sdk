@@ -1,4 +1,3 @@
-import os
 import pytest
 from lumimedia.transformer import (
     resize_image,

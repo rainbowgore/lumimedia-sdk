@@ -1,5 +1,4 @@
 import unittest
-import os
 from lumimedia_sdk import uploader
 
 

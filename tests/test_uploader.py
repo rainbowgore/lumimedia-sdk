@@ -4,7 +4,10 @@ from lumimedia.uploader import MediaUploader
 
 @pytest.fixture
 def uploader():
-    return MediaUploader(api_key="fake-api-key", upload_endpoint="https://example.com/upload")
+    return MediaUploader(
+        api_key="fake-api-key",
+        upload_endpoint="https://example.com/upload"
+    )
 
 
 def test_upload_file_success(monkeypatch, uploader):

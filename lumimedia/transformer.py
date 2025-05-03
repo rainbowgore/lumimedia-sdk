@@ -41,3 +41,15 @@ def compress_image(image_path: str, quality: int = 75) -> bytes:
         img_byte_arr = io.BytesIO()
         img.save(img_byte_arr, format=img.format, optimize=True, quality=quality)
         return img_byte_arr.getvalue()
+
+def change_format(image_path: str, target_format: str = "PNG") -> bytes:
+    """
+    Change the format of an image and return as bytes.
+    """
+    if not os.path.isfile(image_path):
+        raise FileNotFoundError(f"Image not found: {image_path}")
+
+    with Image.open(image_path) as img:
+        img_byte_arr = io.BytesIO()
+        img.save(img_byte_arr, format=target_format.upper())
+        return img_byte_arr.getvalue()
